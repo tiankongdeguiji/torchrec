@@ -274,6 +274,16 @@ def convert_optimizer_type_and_kwargs(
         return (EmbOptimType.EXACT_ROWWISE_ADAGRAD, optimizer_kwargs)
     elif optimizer_type == torch.optim.Adam:
         return (EmbOptimType.ADAM, optimizer_kwargs)
+    elif optimizer_type == trec_optim.AdaDelta:
+        # FBGEMM reuses the beta1 field for AdaDelta's rho decay rate.
+        if "rho" in optimizer_kwargs:
+            optimizer_kwargs["beta1"] = optimizer_kwargs.pop("rho")
+        return (EmbOptimType.ADADELTA, optimizer_kwargs)
+    elif optimizer_type == trec_optim.RMSProp:
+        # FBGEMM reuses the beta1 field for RMSProp's alpha decay rate.
+        if "alpha" in optimizer_kwargs:
+            optimizer_kwargs["beta1"] = optimizer_kwargs.pop("alpha")
+        return (EmbOptimType.RMSPROP, optimizer_kwargs)
 
     return None
 
