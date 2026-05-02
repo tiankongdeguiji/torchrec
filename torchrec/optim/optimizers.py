@@ -165,3 +165,43 @@ class Adagrad(Optimizer):
     # pyrefly: ignore[bad-override]
     def step(self, closure=None) -> torch.Tensor:
         raise NotImplementedError
+
+
+class AdaDelta(Optimizer):
+    r"""
+    Placeholder for AdaDelta. This optimizer will not functionally run.
+    The actual update is performed by FBGEMM's fused-in-backward kernel.
+    """
+
+    def __init__(
+        self,
+        params: Iterable[torch.nn.Parameter],
+        **kwargs,
+    ) -> None:
+        self._params = params
+        self._kwargs = kwargs
+
+    @torch.no_grad()
+    # pyrefly: ignore[bad-override]
+    def step(self, closure=None) -> torch.Tensor:
+        raise NotImplementedError
+
+
+class RMSProp(Optimizer):
+    r"""
+    Placeholder for RMSProp. This optimizer will not functionally run.
+    The actual update is performed by FBGEMM's fused-in-backward kernel.
+    """
+
+    def __init__(
+        self,
+        params: Iterable[torch.nn.Parameter],
+        **kwargs,
+    ) -> None:
+        self._params = params
+        self._kwargs = kwargs
+
+    @torch.no_grad()
+    # pyrefly: ignore[bad-override]
+    def step(self, closure=None) -> torch.Tensor:
+        raise NotImplementedError

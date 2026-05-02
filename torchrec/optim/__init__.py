@@ -29,12 +29,14 @@ from torchrec.optim.keyed import (  # noqa
     OptimizerWrapper,
 )
 from torchrec.optim.optimizers import (  # noqa
+    AdaDelta,
     Adagrad,
     Adam,
     LAMB,
     LarsSGD,
     PartialRowWiseAdam,
     PartialRowWiseLAMB,
+    RMSProp,
     SGD,
 )
 from torchrec.optim.rowwise_adagrad import RowWiseAdagrad  # noqa
