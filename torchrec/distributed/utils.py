@@ -338,6 +338,8 @@ _OPTIMIZER_CLASS_TO_EMB_OPT_TYPE: Dict[Type[torch.optim.Optimizer], EmbOptimType
     trec_optim.PartialRowWiseAdam: EmbOptimType.PARTIAL_ROWWISE_ADAM,
     trec_optim.Adagrad: EmbOptimType.EXACT_ADAGRAD,
     trec_optim.RowWiseAdagrad: EmbOptimType.EXACT_ROWWISE_ADAGRAD,
+    trec_optim.AdaDelta: EmbOptimType.ADADELTA,
+    trec_optim.RMSProp: EmbOptimType.RMSPROP,
 }
 
 # Inverse mapping from EmbOptimType to optimizer class.
@@ -351,6 +353,8 @@ _EMB_OPT_TYPE_TO_OPTIMIZER_CLASS: Dict[EmbOptimType, Type[torch.optim.Optimizer]
     EmbOptimType.PARTIAL_ROWWISE_LAMB: trec_optim.PartialRowWiseLAMB,
     EmbOptimType.PARTIAL_ROWWISE_ADAM: trec_optim.PartialRowWiseAdam,
     EmbOptimType.EXACT_ROWWISE_ADAGRAD: trec_optim.RowWiseAdagrad,
+    EmbOptimType.ADADELTA: trec_optim.AdaDelta,
+    EmbOptimType.RMSPROP: trec_optim.RMSProp,
 }
 
 

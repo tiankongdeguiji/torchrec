@@ -70,6 +70,8 @@ class OptimType(Enum):
     SHAMPOO_V2_MRS = "SHAMPOO_V2_MRS"
     SHAMPOO_MRS = "SHAMPOO_MRS"
     MUON = "MUON"
+    ADADELTA = "ADADELTA"
+    RMSPROP = "RMSPROP"
 
 
 @unique
